@@ -1,0 +1,122 @@
+.RoadMapPage {
+  background: #F8F8F8;
+  .RoadMapHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(41, 91, 230);
+    height: 46px;
+    min-width: 880px;
+    transition: color .3s;
+
+    .SelectItem {
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px;
+      transition: background-color .3s;
+      align-items: center;
+      display: inline-flex;
+      height: 32px;
+      vertical-align: middle;
+      color: #fff;
+      font-family: Inter-UI-Medium, Arial, Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 46px;
+      text-align: center;
+      white-space: nowrap;
+
+      background-color: hsla(0, 0%, 100%, .16);
+    }
+
+    .AddBrief {
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: 5px;
+      vertical-align: middle;
+      color: #E9ECEF;
+      font-size: 16px;
+
+      background-color: hsla(0, 0%, 100%, .16);
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  .RoadMapContainer {
+    //background: #000;
+
+    ul {
+      border-bottom: 1px solid #ebebeb;
+      min-height: 100%;
+      list-style: none;
+      margin: 0;
+      outline: 0;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      padding: 0;
+      position: relative;
+      user-select: none;
+      white-space: nowrap;
+
+      li {
+        //background: green;
+        min-height: calc(100vh - 64px);
+        display: inline-block;
+        position: relative;
+        width: 60px;
+        box-shadow: inset 1px 0 0 rgba(0, 0, 0, .03);
+
+        .Item-header {
+          background-color: #fff;
+          box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
+          font-size: 13px;
+          //height: 65px;
+          //pointer-events: none;
+          position: absolute;
+          width: 100%;
+
+          .Item-month {
+            padding-left: 15px;
+
+            span {
+              color: #9aa1aa;
+              font-family: Inter-UI-Medium, Arial, Roboto, sans-serif;
+              font-size: 11px;
+              line-height: 28px;
+              letter-spacing: 1px;
+            }
+          }
+
+          .Item-date {
+            cursor: pointer;
+            background-color: #fff;
+            color: #9aa1aa;
+            display: flex;
+            justify-content: center;
+            padding: 5px 0;
+
+            div {
+              cursor: pointer;
+              width: 20px;
+              height: 20px;
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 50%;
+              font-family: Inter-UI-Medium, Arial, Roboto, sans-serif;
+              font-size: 12px;
+              font-style: normal;
+            }
+            .Item-day:hover {
+              background: rgba(249, 89, 67, .2);
+              color: #eb4962;
+            }
+          }
+        }
+      }
+    }
+  }
+}
