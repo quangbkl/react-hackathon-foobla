@@ -1,0 +1,81 @@
+@import "roadmap-date";
+@import "../react-resizable";
+@import "roadmap-grid";
+
+.RoadMapPage {
+  background: #F8F8F8;
+  min-height: 100%;
+
+  .RoadMapHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(41, 91, 230);
+    height: 46px;
+    min-width: 880px;
+    transition: color .3s;
+
+    .SelectItem {
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px;
+      transition: background-color .3s;
+      align-items: center;
+      display: inline-flex;
+      height: 32px;
+      vertical-align: middle;
+      color: #fff;
+      font-family: Inter-UI-Medium, Arial, Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 46px;
+      text-align: center;
+      white-space: nowrap;
+
+      background-color: hsla(0, 0%, 100%, .16);
+    }
+
+    .AddBrief {
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: 5px;
+      vertical-align: middle;
+      color: #E9ECEF;
+      font-size: 16px;
+
+      background-color: hsla(0, 0%, 100%, .16);
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  .RoadMapContainer {
+    height: 100%;
+    background-color: #f8f8f8;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 46px;
+    width: 100%;
+    display: block;
+
+    .RoadMapContent {
+      height: 100%;
+      display: block;
+    }
+
+    .GridHover {
+      background: royalblue;
+      display: block;
+      cursor: crosshair;
+      //display: none;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+    }
+  }
+}

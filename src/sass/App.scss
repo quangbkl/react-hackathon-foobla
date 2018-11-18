@@ -1,4 +1,5 @@
-@import "./pages/roadmap";
+@import "./pages/home";
+@import "./pages/roadmap/roadmap";
 
 * {
   -webkit-box-sizing: border-box;
@@ -6,10 +7,8 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 100%;
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  //background: aqua;
 }

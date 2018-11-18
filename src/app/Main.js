@@ -3,7 +3,6 @@ import {Switch, Route} from 'react-router-dom'
 import HomePage from "./pages/home/HomePage";
 import Error404 from "./pages/errors/Error404";
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faStroopwafel} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faStroopwafel)
@@ -11,7 +10,7 @@ library.add(faStroopwafel)
 class Main extends Component {
     render() {
         return (
-            <div>
+            <div className="Main">
                 <Switch>
                     <Route exact path='/' component={HomePage}/>
                     <Route component={Error404}/>
