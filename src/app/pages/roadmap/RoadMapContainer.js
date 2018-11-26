@@ -6,7 +6,24 @@ import RoadMapGrid from "./RoadMapGrid";
 class RoadMapContainer extends Component {
     state = {
         hoverX: 0,
-        hoverY: 0
+        hoverY: 0,
+        listTasks: {
+            start_date: new Date('2018-11-11T03:24:00').toString(),
+            end_date: new Date('2018-11-30T03:24:00').toString(),
+            tasks: [
+                {
+                    name: 'Quang BKL',
+                    notes: 'Hey. I am Quang.',
+                    members: [],
+                    comments: ['Hello. Where you come from?'],
+                    owner: 'quang_bkl_99',
+                    is_completed: false,
+                    start_date: new Date('2018-11-15T03:24:00').toString(),
+                    end_date: new Date('2018-11-18T03:24:00').toString(),
+                    row: 1
+                }
+            ]
+        }
     }
 
     onMouseMoveItem = (e) => {
@@ -21,12 +38,13 @@ class RoadMapContainer extends Component {
     }
 
     render() {
+        const {listTasks} = this.state;
         return (
             <div className="RoadMapContainer">
                 <div className="RoadMapContent">
-                    <RoadMapDate onMouseMove={this.onMouseMoveItem}/>
-                    <GridHover posX={this.state.hoverX} posY={this.state.hoverY}/>
-                    <RoadMapGrid/>
+                    <RoadMapDate onMouseMove={this.onMouseMoveItem} listTasks={listTasks}/>
+                    {/*<GridHover posX={this.state.hoverX} posY={this.state.hoverY}/>*/}
+                    <RoadMapGrid listTasks={listTasks}/>
                 </div>
             </div>
         );

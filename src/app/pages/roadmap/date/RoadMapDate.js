@@ -37,9 +37,17 @@ class RoadMapDate extends Component {
         console.log('Scrolling...');
     }
     render() {
+        const {listTasks} = this.props;
+
         return (
             <div className="RoadMapDate">
                 <ul onScroll={this.onScroll} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onMouseMove={this.onMouseMove} ref={this.listsDate} >
+                    {
+                        listTasks.map(task => {
+
+                        })
+                    }
+
                     <ItemDate {...this.props}/>
                     <ItemDate {...this.props}/>
                     <ItemDate {...this.props}/>
