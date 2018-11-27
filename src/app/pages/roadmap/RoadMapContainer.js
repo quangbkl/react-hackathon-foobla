@@ -9,7 +9,7 @@ class RoadMapContainer extends Component {
         hoverY: 0,
         listTasks: {
             start_date: new Date('2018-11-11T03:24:00').toString(),
-            end_date: new Date('2018-11-30T03:24:00').toString(),
+            end_date: new Date('2018-12-30T03:24:00').toString(),
             tasks: [
                 {
                     name: 'Quang BKL',

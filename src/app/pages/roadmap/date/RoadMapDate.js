@@ -36,63 +36,33 @@ class RoadMapDate extends Component {
     onScroll = () => {
         console.log('Scrolling...');
     }
+
+    generatorMapDate = (startDate, endDate) => {
+        const mapDates = [];
+        while (startDate < endDate) {
+            mapDates.push(startDate);
+            startDate.setDate(startDate.getDate() + 1);
+        }
+
+        return mapDates;
+    }
+
     render() {
         const {listTasks} = this.props;
+        const {start_date, end_date} = listTasks;
+        const mapDates = this.generatorMapDate(new Date(start_date), new Date(end_date));
 
         return (
             <div className="RoadMapDate">
-                <ul onScroll={this.onScroll} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onMouseMove={this.onMouseMove} ref={this.listsDate} >
+                <ul onScroll={this.onScroll} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp}
+                    onMouseMove={this.onMouseMove} ref={this.listsDate}>
                     {
-                        listTasks.map(task => {
-
+                        mapDates.map(itemDate => {
+                            return <ItemDate {...this.props} date={itemDate}/>;
                         })
                     }
 
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
-                    <ItemDate {...this.props}/>
+                    {/*<ItemDate {...this.props}/>*/}
                 </ul>
             </div>
         );
