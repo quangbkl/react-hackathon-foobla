@@ -1,5 +1,6 @@
-@import "./pages/home";
-@import "./pages/roadmap/roadmap";
+@import "pages/home";
+@import "pages/roadmap/roadmap";
+@import "../components/modal";
 
 * {
   -webkit-box-sizing: border-box;

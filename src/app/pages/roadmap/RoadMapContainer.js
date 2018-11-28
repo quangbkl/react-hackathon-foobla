@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import RoadMapDate from "./date/RoadMapDate";
-import GridHover from "./GridHover";
-import RoadMapGrid from "./RoadMapGrid";
+import GridHover from "./grid-layout/GridHover";
+import RoadMapGrid from "./grid-layout/RoadMapGrid";
+import Modal from "../../../components/modal/Modal";
 
 class RoadMapContainer extends Component {
     state = {
@@ -54,6 +55,9 @@ class RoadMapContainer extends Component {
                     {/*<GridHover posX={this.state.hoverX} posY={this.state.hoverY}/>*/}
                     <RoadMapGrid listTasks={listTasks} scrollLeft={this.state.scrollLeft}/>
                 </div>
+                <Modal show={false} onClose={() => {}}>
+                    salkfjlsadjfl
+                </Modal>
             </div>
         );
     }
