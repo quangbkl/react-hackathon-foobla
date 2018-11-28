@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import GridLayout from 'react-grid-layout';
+import ReactGridLayout from 'react-grid-layout';
 
 // import '../../../../node_modules/react-grid-layout/css/styles.css'
 
 class RoadMapGrid extends Component {
+    constructor(props) {
+        super(props);
+
+        this.grid = React.createRef();
+    }
+
     differenceDay = (start_date, end_date) => {
         const oneDay = 24 * 60 * 60 * 1000;
         start_date.setHours(0);
@@ -30,22 +36,31 @@ class RoadMapGrid extends Component {
         };
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.grid.current.scrollLeft = this.props.scrollLeft;
+    }
+
     render() {
         const {listTasks} = this.props;
         const dataGrids = this.calculateDataGrid(listTasks);
 
         return (
-            <div className="RoadMapGrid">
-                <GridLayout className="layout" cols={dataGrids.cols} rowHeight={40} width={dataGrids.cols * 60} verticalCompact={false}>
+            <div className="RoadMapGrid" ref={this.grid}>
+                <ReactGridLayout
+                    className="layout"
+                    cols={dataGrids.cols}
+                    rowHeight={40}
+                    width={dataGrids.cols * 60 + 10}
+                    verticalCompact={false}
+                    style={{width: dataGrids.cols * 60}}
+                >
                     {
                         dataGrids.data.map((data, index) => {
-                            return <div key={index} data-grid={{x: data.x, y: data.y, w: data.w, h: 1}}>{index}</div>;
+                            return <div key={index}
+                                        data-grid={{x: data.x, y: data.y, w: data.w, h: 1, maxH: 1}}>{index}</div>;
                         })
                     }
-                    <div key="a" data-grid={{x: 0, y: 0, w: 1, h: 2}}>a</div>
-                    <div key="b" data-grid={{x: 1, y: 0, w: 7, h: 1, minW: 1, maxH: 1}}>b</div>
-                    <div key="c" data-grid={{x: 4, y: 0, w: 1, h: 2}}>c</div>
-                </GridLayout>
+                </ReactGridLayout>
             </div>
         )
     }

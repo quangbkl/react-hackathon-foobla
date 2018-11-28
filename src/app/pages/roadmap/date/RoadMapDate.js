@@ -33,14 +33,10 @@ class RoadMapDate extends Component {
         }
     }
 
-    onScroll = () => {
-        console.log('Scrolling...');
-    }
-
     generatorMapDate = (startDate, endDate) => {
         const mapDates = [];
         while (startDate < endDate) {
-            mapDates.push(startDate);
+            mapDates.push(new Date(startDate));
             startDate.setDate(startDate.getDate() + 1);
         }
 
@@ -48,21 +44,19 @@ class RoadMapDate extends Component {
     }
 
     render() {
-        const {listTasks} = this.props;
+        const {listTasks, onScrollDate} = this.props;
         const {start_date, end_date} = listTasks;
         const mapDates = this.generatorMapDate(new Date(start_date), new Date(end_date));
 
         return (
             <div className="RoadMapDate">
-                <ul onScroll={this.onScroll} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp}
+                <ul onScroll={onScrollDate} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp}
                     onMouseMove={this.onMouseMove} ref={this.listsDate}>
                     {
                         mapDates.map(itemDate => {
                             return <ItemDate {...this.props} date={itemDate}/>;
                         })
                     }
-
-                    {/*<ItemDate {...this.props}/>*/}
                 </ul>
             </div>
         );

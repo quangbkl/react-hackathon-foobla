@@ -7,6 +7,7 @@ class RoadMapContainer extends Component {
     state = {
         hoverX: 0,
         hoverY: 0,
+        scrollLeft: 0,
         listTasks: {
             start_date: new Date('2018-11-11T03:24:00').toString(),
             end_date: new Date('2018-12-30T03:24:00').toString(),
@@ -37,14 +38,21 @@ class RoadMapContainer extends Component {
         });
     }
 
+    onScrollDate = (e) => {
+        this.setState({
+            scrollLeft: e.target.scrollLeft
+        });
+    }
+
     render() {
         const {listTasks} = this.state;
         return (
             <div className="RoadMapContainer">
                 <div className="RoadMapContent">
-                    <RoadMapDate onMouseMove={this.onMouseMoveItem} listTasks={listTasks}/>
+                    <RoadMapDate onMouseMove={this.onMouseMoveItem} listTasks={listTasks}
+                                 onScrollDate={this.onScrollDate}/>
                     {/*<GridHover posX={this.state.hoverX} posY={this.state.hoverY}/>*/}
-                    <RoadMapGrid listTasks={listTasks}/>
+                    <RoadMapGrid listTasks={listTasks} scrollLeft={this.state.scrollLeft}/>
                 </div>
             </div>
         );

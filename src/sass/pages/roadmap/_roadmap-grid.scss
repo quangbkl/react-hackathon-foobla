@@ -6,14 +6,14 @@
   overflow: hidden;
   position: fixed;
   right: 0;
-  top: 104px;
+  top: 111px;
+  visibility: visible;
   //background: red;
 
-  .GridLayout {
+  .layout {
+    //width: 3000px;
     //background-color: green;
-    overflow: hidden;
-    div {
-      background: aquamarine;
-    }
+    //max-height: none;
+    //overflow: auto;
   }
 }
